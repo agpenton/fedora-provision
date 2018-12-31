@@ -1,6 +1,7 @@
 ---
 - name: Enabling extra Repositories
   become: true
+  become_user: root
   dnf:
     name: "{{ pkg }}"
     state: latest
@@ -9,6 +10,7 @@
 
 - name: Update the system.
   become: true
+  become_user: root
   dnf:
     name: "*"
     state: latest
