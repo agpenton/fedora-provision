@@ -5,8 +5,7 @@
   with_items:
     - docker
     - docker-compose
-    - docker-machine
-
+    
 - name: create the docker group
   group:
     name: docker
