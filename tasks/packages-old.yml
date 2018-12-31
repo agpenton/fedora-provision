@@ -1,6 +1,0 @@
----
-- name: Installing Essentials packages.
-  become: true
-  dnf:
-    name: "{{ essential_pkg }}"
-    state: latest

@@ -12,18 +12,3 @@
   dnf:
     name: "*"
     state: latest
-
-- name: Clean the obsolete packages.
-  dnf:
-    autoremove: true
-
-# - name: Autoremove unneeded packages installed as dependencies.
-#   become: true
-#   dnf:
-#     autoremove: yes
-
-# - name: Update the system.
-#   become: true
-#   command: dnf distro-sync -y
-#   register: command
-#   changed_when: "'No Packages marked for Distribution Synchronization' not in command.stdout"
