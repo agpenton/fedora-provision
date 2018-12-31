@@ -1,0 +1,4 @@
+---
+# vars file for fedora-provisionision
+username:
+  - vagrant

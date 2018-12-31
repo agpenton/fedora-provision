@@ -1,0 +1,14 @@
+---
+- name: Creating Virtualbox repo file.
+  get_url:
+      dest: /etc/yum.repos.d/virtualbox.repo
+      url: "{{virtualbox_repo}}"
+
+- name: Update the system.
+  dnf:
+      name: "*"
+      state: latest
+
+- name: Clean the obsolete packages.
+  dnf:
+      autoremove: true

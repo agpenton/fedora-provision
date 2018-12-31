@@ -1,0 +1,24 @@
+---
+- name: install docker packages
+  package:
+    name: "{{ item }}"
+  with_items:
+    - docker
+    - docker-compose
+
+- name: create the docker group
+  group:
+    name: docker
+    state: present
+
+- name: add user to docker group
+  user:
+    name: "{{ username }}"
+    groups: docker
+    append: true
+
+- name: enable docker service
+  service:
+    name: docker
+    enabled: true
+    state: started

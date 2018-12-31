@@ -1,0 +1,29 @@
+---
+- name: Enabling extra Repositories
+  become: true
+  dnf:
+    name: "{{ pkg }}"
+    state: latest
+- name: installing python and deps for ansible modules.
+  raw: dnf install -y python2 python2-dnf libselinux-python
+
+- name: Update the system.
+  become: true
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Clean the obsolete packages.
+  dnf:
+    autoremove: true
+
+# - name: Autoremove unneeded packages installed as dependencies.
+#   become: true
+#   dnf:
+#     autoremove: yes
+
+# - name: Update the system.
+#   become: true
+#   command: dnf distro-sync -y
+#   register: command
+#   changed_when: "'No Packages marked for Distribution Synchronization' not in command.stdout"
